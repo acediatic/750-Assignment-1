@@ -12,6 +12,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+        backgroundColor: Color.fromRGBO(52, 79, 161, 1),
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0), child: DoDayAppBar()));
   }
