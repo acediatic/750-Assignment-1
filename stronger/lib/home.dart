@@ -57,7 +57,10 @@ class RoundedCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Icon(leadingIcon),
+                Icon(
+                  leadingIcon,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 Text(text),
                 const Icon(Icons.keyboard_arrow_right),
               ],
