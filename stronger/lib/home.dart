@@ -17,12 +17,15 @@ class Home extends StatelessWidget {
           children: const [
             RoundedCard(
               text: 'My Workouts',
+              leadingIcon: Icons.fitness_center,
             ),
             RoundedCard(
               text: 'Freedom Mode',
+              leadingIcon: Icons.accessibility_outlined,
             ),
             RoundedCard(
               text: 'Create Workout',
+              leadingIcon: Icons.add_circle_outline_outlined,
             ),
           ],
         ),
@@ -33,7 +36,9 @@ class Home extends StatelessWidget {
 
 class RoundedCard extends StatelessWidget {
   final String text;
-  const RoundedCard({Key? key, required this.text}) : super(key: key);
+  final IconData leadingIcon;
+  const RoundedCard({Key? key, required this.text, required this.leadingIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +46,22 @@ class RoundedCard extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
+          // TODO navigate to the corresponding page
           ;
         },
-        child: SizedBox(
-          width: 300,
-          height: 100,
-          child: Center(
-            child: Text(text),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: SizedBox(
+            width: 300,
+            height: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Icon(leadingIcon),
+                Text(text),
+                const Icon(Icons.keyboard_arrow_right),
+              ],
+            ),
           ),
         ),
       ),
