@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:stronger/list_workouts.dart';
+import 'package:stronger/pages/list_workouts.dart';
 import 'package:stronger/main.dart';
 import 'package:stronger/model/workout.dart';
 import 'package:stronger/model/workouts_list.dart';
-import 'package:stronger/workout_page.dart';
-import 'standard_scaffold.dart';
+import 'package:stronger/pages/workout_page.dart';
+import '../components/standard_scaffold.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:stronger/standard_scaffold.dart';
+import 'package:stronger/components/standard_scaffold.dart';
 
 class ExercisePage extends StatelessWidget {
   const ExercisePage({Key? key}) : super(key: key);
