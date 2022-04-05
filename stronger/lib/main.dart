@@ -14,7 +14,7 @@ void main() {
     child: const MyApp(),
     create: (context) => WorkoutsList(
       [
-        const Workout(
+        Workout(
           title: "Chest",
           icon: FontAwesomeIcons.childReaching,
           description: "Chest workout",
@@ -23,17 +23,17 @@ void main() {
               title: "Bench press",
               icon: Icons.access_time,
               description: "Bench press",
-              numberReps: 10,
+              targetReps: 10,
             ),
             Exercise(
               title: "Incline bench press",
               icon: Icons.access_time,
               description: "Incline bench press",
-              numberReps: 10,
+              targetReps: 10,
             ),
           ],
         ),
-        const Workout(
+        Workout(
           title: "Back",
           icon: FontAwesomeIcons.arrowLeft,
           description: "Back workout",
@@ -42,17 +42,17 @@ void main() {
               title: "Deadlift",
               icon: Icons.access_time,
               description: "Deadlift",
-              numberReps: 10,
+              targetReps: 10,
             ),
             Exercise(
               title: "Pull up",
               icon: Icons.access_time,
               description: "Pull up",
-              numberReps: 10,
+              targetReps: 10,
             ),
           ],
         ),
-        const Workout(
+        Workout(
           title: "Legs",
           icon: FontAwesomeIcons.socks,
           description: "Legs workout",
@@ -61,13 +61,13 @@ void main() {
               title: "Squat",
               icon: Icons.access_time,
               description: "Squat",
-              numberReps: 10,
+              targetReps: 10,
             ),
             Exercise(
               title: "Leg press",
               icon: Icons.access_time,
               description: "Leg press",
-              numberReps: 10,
+              targetReps: 10,
             ),
           ],
         ),
