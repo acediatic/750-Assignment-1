@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stronger/pages/create_workout_page.dart';
 import 'package:stronger/pages/exercise_page.dart';
 import 'package:stronger/model/workouts_list.dart';
 import 'package:stronger/pages/workout_page.dart';
@@ -100,6 +101,7 @@ class MyApp extends StatelessWidget {
         ListWorkouts.routeName: (context) => const ListWorkouts(),
         WorkoutPage.routeName: (context) => const WorkoutPage(),
         ExercisePage.routeName: (context) => const ExercisePage(),
+        CreateWorkoutPage.routeName: (context) => const CreateWorkoutPage(),
       },
     );
   }

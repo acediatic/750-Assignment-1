@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stronger/model/workouts_list.dart';
 import 'package:stronger/components/standard_scaffold.dart';
-import "package:provider/provider.dart";
+import 'package:provider/provider.dart';
 import 'package:stronger/pages/workout_page.dart';
 
 class ListWorkouts extends StatelessWidget {
