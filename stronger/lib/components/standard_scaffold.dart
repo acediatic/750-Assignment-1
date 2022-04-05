@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stronger/appbar.dart';
+import 'package:stronger/components/appbar.dart';
 
 class StandardScaffold extends StatelessWidget {
   final Widget child;

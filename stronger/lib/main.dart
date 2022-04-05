@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:stronger/exercise_page.dart';
+import 'package:stronger/pages/exercise_page.dart';
 import 'package:stronger/model/workouts_list.dart';
-import 'package:stronger/workout_page.dart';
-import "home.dart";
+import 'package:stronger/pages/workout_page.dart';
+import 'pages/home.dart';
 import 'package:provider/provider.dart';
 import "package:stronger/model/workout.dart";
 import "package:stronger/model/exercise.dart";
-import 'list_workouts.dart';
+import 'pages/list_workouts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {

@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stronger/model/workout.dart';
-import 'package:stronger/standard_scaffold.dart';
-import "package:stronger/exercise_page.dart";
+import 'package:stronger/components/standard_scaffold.dart';
+import 'package:stronger/pages/exercise_page.dart';
 
 class WorkoutPage extends StatelessWidget {
   const WorkoutPage({Key? key}) : super(key: key);
