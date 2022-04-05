@@ -19,7 +19,12 @@ class ListWorkouts extends StatelessWidget {
             itemBuilder: (context, index) {
               final workout = model.workouts[index];
               return ListTile(
-                leading: Icon(workout.icon),
+                leading: Column(children: [
+                  Hero(
+                    child: Icon(workout.icon),
+                    tag: workout,
+                  ),
+                ], mainAxisAlignment: MainAxisAlignment.center),
                 title: Text(workout.title),
                 subtitle: Text(workout.description),
                 trailing: const Icon(Icons.keyboard_arrow_right),
