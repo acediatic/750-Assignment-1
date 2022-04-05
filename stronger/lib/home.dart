@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:stronger/list_workouts.dart';
 import 'package:stronger/main.dart';
@@ -115,19 +116,18 @@ class WorkoutCard extends StatelessWidget {
       },
       child: SizedBox(
         width: 150,
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            FaIcon(
+              workout.icon,
+              color: Theme.of(context).colorScheme.primary,
+            ),
             Text(
               workout.title,
               style: Theme.of(context).textTheme.headline1?.copyWith(
                     fontSize: 25,
                   ),
-            ),
-            Icon(
-              workout.icon,
-              size: 50,
-              color: Theme.of(context).colorScheme.primary,
             ),
           ],
         ),

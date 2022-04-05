@@ -7,15 +7,16 @@ import 'package:provider/provider.dart';
 import "package:stronger/model/workout.dart";
 import "package:stronger/model/exercise.dart";
 import 'list_workouts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
     child: const MyApp(),
     create: (context) => WorkoutsList(
-      const [
-        Workout(
+      [
+        const Workout(
           title: "Chest",
-          icon: Icons.access_time,
+          icon: FontAwesomeIcons.childReaching,
           description: "Chest workout",
           exercises: [
             Exercise(
@@ -32,9 +33,9 @@ void main() {
             ),
           ],
         ),
-        Workout(
+        const Workout(
           title: "Back",
-          icon: Icons.access_time,
+          icon: FontAwesomeIcons.arrowLeft,
           description: "Back workout",
           exercises: [
             Exercise(
@@ -51,9 +52,9 @@ void main() {
             ),
           ],
         ),
-        Workout(
+        const Workout(
           title: "Legs",
-          icon: Icons.access_time,
+          icon: FontAwesomeIcons.socks,
           description: "Legs workout",
           exercises: [
             Exercise(

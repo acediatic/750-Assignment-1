@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stronger/model/workout.dart';
 import 'package:stronger/standard_scaffold.dart';
 import "package:stronger/exercise_page.dart";
@@ -41,7 +42,7 @@ class WorkoutPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final exercise = workout.exercises[index];
                   return ListTile(
-                    leading: Icon(exercise.icon),
+                    leading: FaIcon(exercise.icon),
                     title: Text(exercise.title),
                     subtitle: Text(exercise.description),
                     trailing: const Icon(Icons.keyboard_arrow_right),
