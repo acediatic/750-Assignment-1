@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stronger/exercise_page.dart';
-import 'package:stronger/model/my_workouts_model.dart';
+import 'package:stronger/model/workouts_list.dart';
 import 'package:stronger/workout_page.dart';
 import "home.dart";
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ import 'list_workouts.dart';
 void main() {
   runApp(ChangeNotifierProvider(
     child: const MyApp(),
-    create: (context) => MyWorkoutsModel(
+    create: (context) => WorkoutsList(
       const [
         Workout(
           title: "Chest",

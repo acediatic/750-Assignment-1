@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stronger/model/my_workouts_model.dart';
+import 'package:stronger/model/workouts_list.dart';
 import 'package:stronger/standard_scaffold.dart';
 import "package:provider/provider.dart";
 import 'package:stronger/workout_page.dart';
@@ -12,12 +12,12 @@ class ListWorkouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StandardScaffold(
-      child: Consumer<MyWorkoutsModel>(
+      child: Consumer<WorkoutsList>(
         builder: (context, model, child) {
           return ListView.builder(
-            itemCount: model.items.length,
+            itemCount: model.workouts.length,
             itemBuilder: (context, index) {
-              final workout = model.items[index];
+              final workout = model.workouts[index];
               return ListTile(
                 leading: Icon(workout.icon),
                 title: Text(workout.title),
