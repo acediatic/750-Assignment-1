@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:stronger/exercise_page.dart';
 import 'package:stronger/model/my_workouts_model.dart';
+import 'package:stronger/workout_page.dart';
 import "home.dart";
 import 'package:provider/provider.dart';
 import "package:stronger/model/workout.dart";
 import "package:stronger/model/exercise.dart";
-import "my_workouts.dart";
+import 'list_workouts.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -73,10 +75,8 @@ void main() {
   ));
 }
 
-const listWorkoutRoute = '/list-workouts';
 const freedomModeRoute = '/freedom_mode';
 const createWorkoutRoute = '/create_workout';
-const workoutRoute = '/workout';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -96,7 +96,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const Home(),
-        listWorkoutRoute: (context) => const MyWorkouts(),
+        ListWorkouts.routeName: (context) => const ListWorkouts(),
+        WorkoutPage.routeName: (context) => const WorkoutPage(),
+        ExercisePage.routeName: (context) => const ExercisePage(),
       },
     );
   }

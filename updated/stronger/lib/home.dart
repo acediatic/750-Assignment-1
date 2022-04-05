@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stronger/list_workouts.dart';
 import 'package:stronger/main.dart';
 import 'standard_scaffold.dart';
 
@@ -47,7 +48,7 @@ class Home extends StatelessWidget {
             const RoundedCard(
               text: 'My Workouts',
               leadingIcon: Icons.fitness_center,
-              pushRoute: listWorkoutRoute,
+              pushRoute: ListWorkouts.routeName,
             ),
             const RoundedCard(
               text: 'Freedom Mode',
