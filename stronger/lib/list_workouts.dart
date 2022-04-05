@@ -22,7 +22,7 @@ class ListWorkouts extends StatelessWidget {
                 leading: Icon(workout.icon),
                 title: Text(workout.title),
                 subtitle: Text(workout.description),
-                trailing: Icon(Icons.keyboard_arrow_right),
+                trailing: const Icon(Icons.keyboard_arrow_right),
                 onTap: () {
                   Navigator.pushNamed(context, WorkoutPage.routeName,
                       arguments: workout);

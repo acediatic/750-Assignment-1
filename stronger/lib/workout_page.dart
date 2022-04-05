@@ -44,7 +44,7 @@ class WorkoutPage extends StatelessWidget {
                     leading: Icon(exercise.icon),
                     title: Text(exercise.title),
                     subtitle: Text(exercise.description),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
                     onTap: () {
                       Navigator.pushNamed(context, ExercisePage.routeName,
                           arguments: workout);

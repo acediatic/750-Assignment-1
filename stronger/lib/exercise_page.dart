@@ -8,6 +8,6 @@ class ExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StandardScaffold(child: Center(child: Text("Exercise Page")));
+    return const StandardScaffold(child: Center(child: Text("Exercise Page")));
   }
 }
