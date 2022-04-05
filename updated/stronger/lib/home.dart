@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stronger/list_workouts.dart';
 import 'package:stronger/main.dart';
+import 'package:stronger/model/workout.dart';
+import 'package:stronger/model/workouts_list.dart';
+import 'package:stronger/workout_page.dart';
 import 'standard_scaffold.dart';
 
 class Home extends StatelessWidget {
@@ -18,32 +22,20 @@ class Home extends StatelessWidget {
             const Text(
               "My Workouts",
             ),
-            // horiozontal scroller of cards
             SizedBox(
-              height: 200,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: const [
-                  // Card with title "Legs" and muscle emoji
-                  WorkoutCard(
-                    title: "Tabata Sprints",
-                    icon: Icons.directions_run,
-                  ),
-
-                  // Card with title "Chest" and muscle emoji
-                  WorkoutCard(
-                    title: "Chest",
-                    icon: Icons.accessibility,
-                  ),
-
-                  // Card with title "Back" and muscle emoji
-                  WorkoutCard(
-                    title: "Back",
-                    // back icon
-                    icon: Icons.fitness_center,
-                  ),
-                ],
-              ),
+              height: 100,
+              child: Consumer<WorkoutsList>(
+                  builder: (context, workoutsList, child) {
+                return ListView.builder(
+                  // horizontal scrolling
+                  scrollDirection: Axis.horizontal,
+                  itemCount: workoutsList.workouts.length,
+                  itemBuilder: (context, index) {
+                    final workout = workoutsList.workouts[index];
+                    return WorkoutCard(workout: workout);
+                  },
+                );
+              }),
             ),
             const RoundedCard(
               text: 'My Workouts',
@@ -109,11 +101,9 @@ class RoundedCard extends StatelessWidget {
 }
 
 class WorkoutCard extends StatelessWidget {
-  const WorkoutCard({Key? key, required this.title, required this.icon})
-      : super(key: key);
+  const WorkoutCard({Key? key, required this.workout}) : super(key: key);
 
-  final String title;
-  final IconData icon;
+  final Workout workout;
 
   @override
   Widget build(BuildContext context) {
@@ -121,21 +111,21 @@ class WorkoutCard extends StatelessWidget {
         child: InkWell(
       splashColor: Colors.blue.withAlpha(30),
       onTap: () {
-        // TODO navigate to the corresponding page
+        Navigator.pushNamed(context, WorkoutPage.routeName, arguments: workout);
       },
       child: SizedBox(
-        width: 200,
+        width: 150,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              title,
+              workout.title,
               style: Theme.of(context).textTheme.headline1?.copyWith(
                     fontSize: 25,
                   ),
             ),
             Icon(
-              icon,
+              workout.icon,
               size: 50,
               color: Theme.of(context).colorScheme.primary,
             ),
