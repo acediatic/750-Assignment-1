@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stronger/main.dart';
 import 'standard_scaffold.dart';
 
 class Home extends StatelessWidget {
@@ -13,11 +14,11 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "My Workouts",
             ),
             // horiozontal scroller of cards
-            Container(
+            SizedBox(
               height: 200,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -43,17 +44,20 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
-            RoundedCard(
+            const RoundedCard(
               text: 'My Workouts',
               leadingIcon: Icons.fitness_center,
+              pushRoute: listWorkoutRoute,
             ),
-            RoundedCard(
+            const RoundedCard(
               text: 'Freedom Mode',
               leadingIcon: Icons.accessibility_outlined,
+              pushRoute: freedomModeRoute,
             ),
-            RoundedCard(
+            const RoundedCard(
               text: 'Create Workout',
               leadingIcon: Icons.add_circle_outline_outlined,
+              pushRoute: createWorkoutRoute,
             ),
           ],
         ),
@@ -65,7 +69,12 @@ class Home extends StatelessWidget {
 class RoundedCard extends StatelessWidget {
   final String text;
   final IconData leadingIcon;
-  const RoundedCard({Key? key, required this.text, required this.leadingIcon})
+  final String pushRoute;
+  const RoundedCard(
+      {Key? key,
+      required this.text,
+      required this.leadingIcon,
+      required this.pushRoute})
       : super(key: key);
 
   @override
@@ -74,8 +83,7 @@ class RoundedCard extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          // TODO navigate to the corresponding page
-          ;
+          Navigator.pushNamed(context, pushRoute);
         },
         child: Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),

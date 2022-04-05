@@ -1,9 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:stronger/model/my_workouts_model.dart';
 import "home.dart";
+import 'package:provider/provider.dart';
+import "package:stronger/model/workout.dart";
+import "package:stronger/model/exercise.dart";
+import "my_workouts.dart";
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    child: const MyApp(),
+    create: (context) => MyWorkoutsModel(
+      const [
+        Workout(
+          title: "Chest",
+          icon: Icons.access_time,
+          description: "Chest workout",
+          exercises: [
+            Exercise(
+              title: "Bench press",
+              icon: Icons.access_time,
+              description: "Bench press",
+              numberReps: 10,
+            ),
+            Exercise(
+              title: "Incline bench press",
+              icon: Icons.access_time,
+              description: "Incline bench press",
+              numberReps: 10,
+            ),
+          ],
+        ),
+        Workout(
+          title: "Back",
+          icon: Icons.access_time,
+          description: "Back workout",
+          exercises: [
+            Exercise(
+              title: "Deadlift",
+              icon: Icons.access_time,
+              description: "Deadlift",
+              numberReps: 10,
+            ),
+            Exercise(
+              title: "Pull up",
+              icon: Icons.access_time,
+              description: "Pull up",
+              numberReps: 10,
+            ),
+          ],
+        ),
+        Workout(
+          title: "Legs",
+          icon: Icons.access_time,
+          description: "Legs workout",
+          exercises: [
+            Exercise(
+              title: "Squat",
+              icon: Icons.access_time,
+              description: "Squat",
+              numberReps: 10,
+            ),
+            Exercise(
+              title: "Leg press",
+              icon: Icons.access_time,
+              description: "Leg press",
+              numberReps: 10,
+            ),
+          ],
+        ),
+      ],
+    ),
+  ));
 }
+
+const listWorkoutRoute = '/list-workouts';
+const freedomModeRoute = '/freedom_mode';
+const createWorkoutRoute = '/create_workout';
+const workoutRoute = '/workout';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -20,7 +93,11 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       themeMode: ThemeMode.dark,
-      home: const Home(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Home(),
+        listWorkoutRoute: (context) => const MyWorkouts(),
+      },
     );
   }
 }
