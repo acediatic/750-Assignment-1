@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:stronger/components/standard_scaffold.dart';
+import 'package:stronger/pages/add_exercise_page.dart';
 
 import '../model/workout.dart';
-import '../components/view_workout_exercises.dart';
 
 class CreateWorkoutPage extends StatelessWidget {
   const CreateWorkoutPage({Key? key}) : super(key: key);
@@ -49,6 +49,7 @@ class CreateWorkoutPage extends StatelessWidget {
                     !int.parse(value).isNaN ? int.parse(value) : 0,
               ),
               const SizedBox(height: 16.0),
+
               // button to navigate to the add exercises screen
               ElevatedButton(
                 child: Row(
@@ -66,7 +67,7 @@ class CreateWorkoutPage extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ChangeNotifierProvider.value(
                         value: workout,
-                        child: const ViewWorkoutExercises(),
+                        child: const AddExercisesPage(),
                       ),
                     ),
                   );
