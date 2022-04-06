@@ -2,6 +2,24 @@
 
 Stronger is a simple Flutter app demonstrating the core functionality of the framework, especially with regard to its differences to [React](https://reactjs.org/).
 
+## Running the App
+
+To compile and run the app locally, you need to have installed Flutter and Dart on your local machine, following the steps provided in the [Flutter official docs](https://docs.flutter.dev/get-started/install).
+
+Once you've successfully installed Flutter, you have the choice of running and debugging the app using any of Flutter's supported platforms. This guide will assume you're using [Microsoft's Visual Studio Code](https://code.visualstudio.com/) as your IDE, and have an Android phone.
+
+To run the application:
+
+1. Open the repository in VS Code, then navigate to the [`lib/main.dart`](./lib/main.dart).
+2. Plug your Android device into your computer, and configure it for [developer mode](https://docs.flutter.dev/get-started/install/windows#set-up-your-android-device)
+3. Open the command palette using `ctrl-shift-p` or `view>command palette`, then type `Flutter: select device` and choose the corresponding option. This will show a drop-down of the available devices.
+4. Select your Android device from the dropdown list
+5. Use `ctrl-F5` or `Run>Run without debugging` to run the application. After compiling and loading, you should see the Stronger app launched on your Android device.
+
+Note that if you don't have an Android device, other devices may be selected in step 3. above, such as the Chrome web browser. However, be aware that the example application was built with mobile in mind, and hence is not optimised and may not look or perform as expected on other platforms.
+
+The [Flutter docs](https://docs.flutter.dev/get-started/test-drive?tab=vscode) are again helpful if you get stuck.
+
 ## Introduction to Flutter
 
 As per the [Flutter website](https://flutter.dev):
@@ -63,15 +81,51 @@ Select a cross-platform development framework of your choice, and prepare a demo
 **UI Components**
 Flutter doesn’t use native UI components. When the Flutter code is compiled on iOS for example, it is not compiled into the underlying iOS button type. Instead, this is all handled by Flutter's graphic engine, in a similar manner to Java's JVM.
 
-## The _Stronger_ App
+# The _Stronger_ App
 
-The "Stronger" app is configured as a (very) basic workout logger.
+The "Stronger" app is configured as a (very) basic workout logger. At the higher level, the app consists of workouts, which in turn consists of exercises. The app allows you to create and view workouts, as well as count your repetitions of a particular exercise. This information is persisted in voltaile memory (involatile memory was out of scope).
 
-The core functionality is broked down into
+## Structure
+
+The Dart code can be found under the [`lib` directory](./lib/), equivalent to `src` in other frameworks. In this directory, there are three subdirectories: [`components`](./lib/components/), [`model`](./lib/model/), and [`pages`](./lib/pages), along with the [`main.dart`](./lib/main.dart) file.
+
+`main.dart` is the entry point for our Flutter application (and indeed any Dart code). The `main` function runs our code, creating a `StrongerApp()` instance, which is our top level widget (the widget at the top of the widget tree).
+
+**Navigation**: In a similiar manner to React, there are named routes that allow us to transition between different pages in our application. The slugs and correspondings pages are listed in the `main.dart` file, inside the `StrongerApp` widget, under the `routes` properties. Here we see the initial route, set at `/`, displays the `home` widget.
+
+## Data Model
+
+## Pages
+
+### HomePage
+
+### List Workouts Page
+
+### Workout Page
+
+### Exercise Page
+
+### Create Workout Page
+
+### Add Exercise Page
+
+### Freedom Mode
+
+## Unique UI Features
+
+### Hero Transitions
+
+### Preserved User Input
+
+### Reorderable Exercises
+
+### Slide to Delete Exercises
+
+### Preserved Exercise Reps
+
+### Saving a Workout
 
 ## Toolchain
-
-## Explaination of Differences between Flutter and React
 
 ### Examples
 
