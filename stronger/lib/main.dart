@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stronger/pages/add_exercises.dart';
 import 'package:stronger/pages/create_workout_page.dart';
 import 'package:stronger/pages/exercise_page.dart';
 import 'package:stronger/model/workouts_list.dart';
@@ -15,7 +16,7 @@ void main() {
     child: const MyApp(),
     create: (context) => WorkoutsList(
       [
-        Workout(
+        Workout.withExercises(
           title: "Chest",
           icon: FontAwesomeIcons.childReaching,
           description: "Chest workout",
@@ -34,7 +35,7 @@ void main() {
             ),
           ],
         ),
-        Workout(
+        Workout.withExercises(
           title: "Back",
           icon: FontAwesomeIcons.arrowLeft,
           description: "Back workout",
@@ -53,7 +54,7 @@ void main() {
             ),
           ],
         ),
-        Workout(
+        Workout.withExercises(
           title: "Legs",
           icon: FontAwesomeIcons.socks,
           description: "Legs workout",
@@ -101,7 +102,11 @@ class MyApp extends StatelessWidget {
         ListWorkouts.routeName: (context) => const ListWorkouts(),
         WorkoutPage.routeName: (context) => const WorkoutPage(),
         ExercisePage.routeName: (context) => const ExercisePage(),
-        CreateWorkoutPage.routeName: (context) => const CreateWorkoutPage(),
+        CreateWorkoutPage.routeName: (context) => ChangeNotifierProvider(
+              child: const CreateWorkoutPage(),
+              create: (context) => Workout(),
+            ),
+        AddExercisesPage.routeName: (context) => const AddExercisesPage(),
       },
     );
   }

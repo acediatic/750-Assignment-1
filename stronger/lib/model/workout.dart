@@ -3,18 +3,27 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import "exercise.dart";
 
 class Workout extends ChangeNotifier {
-  final String title;
+  String title;
   IconData icon;
   String description;
-  List<Exercise> exercises;
+  List<Exercise> exercises = [];
+  int targetRounds;
 
   Workout({
     Key? key,
-    required this.title,
+    this.title = "New Workout",
     this.icon = FontAwesomeIcons.dumbbell,
     this.description = "",
-    this.exercises = const [],
+    this.targetRounds = 1,
   });
+
+  Workout.withExercises(
+      {Key? key,
+      this.title = "New Workout",
+      this.icon = FontAwesomeIcons.dumbbell,
+      this.description = "",
+      this.targetRounds = 1,
+      required this.exercises});
 
   void addExercise(Exercise exercise) {
     exercises.add(exercise);
