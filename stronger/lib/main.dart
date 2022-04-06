@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stronger/pages/create_workout_page.dart';
 import 'package:stronger/pages/exercise_page.dart';
 import 'package:stronger/model/workouts_list.dart';
+import 'package:stronger/pages/freedom_mode_page.dart';
 import 'package:stronger/pages/workout_page.dart';
 import 'pages/add_exercise_page.dart';
 import 'pages/home.dart';
@@ -107,6 +108,7 @@ class MyApp extends StatelessWidget {
               create: (context) => Workout(),
             ),
         AddExercisesPage.routeName: (context) => const AddExercisesPage(),
+        FreedomModePage.routeName: ((context) => const FreedomModePage()),
       },
     );
   }
