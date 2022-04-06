@@ -13,14 +13,15 @@ import 'pages/list_workouts.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-      child: const MyApp(), create: (context) => WorkoutsList(demoWorkouts)));
+      child: const StrongerApp(),
+      create: (context) => WorkoutsList(demoWorkouts)));
 }
 
 const freedomModeRoute = '/freedom_mode';
 const createWorkoutRoute = '/create_workout';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class StrongerApp extends StatelessWidget {
+  const StrongerApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
