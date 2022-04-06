@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:stronger/pages/add_exercises.dart';
 import 'package:stronger/pages/create_workout_page.dart';
 import 'package:stronger/pages/exercise_page.dart';
 import 'package:stronger/model/workouts_list.dart';
 import 'package:stronger/pages/workout_page.dart';
+import 'pages/add_exercise_page.dart';
 import 'pages/home.dart';
 import 'package:provider/provider.dart';
 import "package:stronger/model/workout.dart";
