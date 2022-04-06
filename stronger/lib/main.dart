@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
       title: 'Stronger',
       theme: ThemeData(
         // This is the theme of the application.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
         // dark mode
         brightness: Brightness.dark,
       ),

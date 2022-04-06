@@ -52,30 +52,24 @@ class WorkoutPage extends StatelessWidget {
             "Exercises",
             style: Theme.of(context).textTheme.headline5,
           ),
-          SizedBox(
-            height: 200,
+          const SizedBox(
+            height: 16,
+          ),
+          Expanded(
             child: ListView.builder(
               itemCount: workout.exercises.length,
               itemBuilder: (context, index) {
                 final exercise = workout.exercises[index];
                 return ListTile(
-                  leading: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text((index + 1).toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6
-                                ?.copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.primary)),
-                      ]),
+                  leading: Text((index + 1).toString(),
+                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                          color: Theme.of(context).colorScheme.primary)),
                   title: Text(exercise.title),
                   subtitle: Text(exercise.description),
                   trailing: const Icon(Icons.keyboard_arrow_right),
                   onTap: () {
                     Navigator.pushNamed(context, ExercisePage.routeName,
-                        arguments: workout);
+                        arguments: exercise);
                   },
                 );
               },
