@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stronger/pages/list_workouts.dart';
 import 'package:stronger/main.dart';
 import 'package:stronger/model/workouts_list.dart';
+import '../components/rounded_title_card.dart';
 import '../components/standard_scaffold.dart';
 import '../components/workout_card.dart';
 
@@ -45,68 +46,22 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-            const RoundedCard(
+            const RoundedTitleCard(
               text: 'My Workouts',
               leadingIcon: Icons.fitness_center,
               pushRoute: ListWorkouts.routeName,
             ),
-            const RoundedCard(
+            const RoundedTitleCard(
               text: 'Freedom Mode',
               leadingIcon: Icons.accessibility_outlined,
               pushRoute: freedomModeRoute,
             ),
-            const RoundedCard(
+            const RoundedTitleCard(
               text: 'Create Workout',
               leadingIcon: Icons.add_circle_outline_outlined,
               pushRoute: createWorkoutRoute,
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class RoundedCard extends StatelessWidget {
-  final String text;
-  final IconData leadingIcon;
-  final String pushRoute;
-  const RoundedCard(
-      {Key? key,
-      required this.text,
-      required this.leadingIcon,
-      required this.pushRoute})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        splashColor: Colors.blue.withAlpha(30),
-        onTap: () {
-          Navigator.pushNamed(context, pushRoute);
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
-          child: SizedBox(
-            height: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Icon(
-                  leadingIcon,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                Text(
-                  text,
-                  style: Theme.of(context).textTheme.headline1?.copyWith(
-                        fontSize: 25,
-                      ),
-                ),
-                const Icon(Icons.keyboard_arrow_right),
-              ],
-            ),
-          ),
         ),
       ),
     );
