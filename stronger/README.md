@@ -75,7 +75,7 @@ To solve this, the Provider package allows the passing of information using the 
 **React Equivalences Summary**
 
 The equivalences between Flutter and React state management methods are summarised below:
-| Flutter State Management Method | React State Management Method |
+| **Flutter State Management Method** | **React State Management Method** |
 |---------------------------------|--------------------------------------|
 | Stateless Widgets | React Components |
 | Stateful Widgets | React Components with useState hooks |
