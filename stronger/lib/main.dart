@@ -37,9 +37,9 @@ void main() {
           ],
         ),
         Workout.withExercises(
-          title: "Back",
-          icon: FontAwesomeIcons.arrowLeft,
-          description: "Back workout",
+          title: "Full Body",
+          icon: FontAwesomeIcons.personRunning,
+          description: "Upper Body workout",
           exercises: [
             Exercise(
               title: "Deadlift",
