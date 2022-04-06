@@ -27,7 +27,6 @@ class ExercisePage extends StatelessWidget {
                       exercise: _exercise,
                     ),
                     height: 300),
-                // row of icon buttons to add, remove, or finish the exercise
                 Align(
                   alignment: Alignment.bottomRight,
                   child: FloatingActionButton(

@@ -70,7 +70,7 @@ Stateful widgets hold their state between widgets, with the state matching the l
 
 When wanting to share state between multiple widgets, we can pass information between widgets (similar to [prop drilling](https://blogs.perficient.com/2021/12/03/understanding-react-context-and-property-prop-drilling/) in React) using their constructors. However, this quickly becomes complex and cumbersome for anything more than trivial applications.
 
-To solve this, the Provider package allows the passing of information using the producer-consumer model. Here, widgets can subscribe to a certain type of object (usually a datamodel object, like a shopping cart), which they can access from their parent. They typically watch for changes of this object, and rerender whenever they're notified that the object has changed.
+To solve this, the Provider package allows the passing of information using the producer-consumer model. Here, widgets can subscribe to a certain type of object (usually a datamodel object, like a shopping cart), which they can access from their parent. They typically watch for changes of this object, and rerender whenever they're notified that the object has changed. This takes advantage of the `Consumer<T>` and `Producer` widgets, to consume and provide an object respectively.
 
 **React Equivalences Summary**
 
@@ -84,6 +84,27 @@ The equivalences between Flutter and React state management methods are summaris
 **UI Components**
 
 Flutter doesn’t use native UI components. When the Flutter code is compiled on iOS for example, it is not compiled into the underlying iOS button type. Instead, this is all handled by Flutter's graphic engine, in a similar manner to Java's JVM.
+
+**Basic Flutter Widgets**
+
+Flutter has a number of widgets that make creating an application simple. There are too many to cover in such a short example, but we'll take a look at the primary widgets that are used repeatedly throughout the application. From these simple basics, complex UI's and custom widgets can be built to create really awesome applications!
+
+| _Visible Widget Name_ | _Widget Description_                                                                             | _Example Usages_                            |
+| --------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------- |
+| ElevatedButton        | Represents a material design button. Has an onPressed function to allow responding to user input | `AddExerciseModal`                          |
+| Text                  | Displays the input string on the screen, with the given style if supplied                        | Every page, such as `Home` or `FreedomMode` |
+| Icon                  | Displays an Icon                                                                                 | `AppBar`                                    |
+| IconButton            | an icon with an onPressed function and a Material inkwell                                        | `AppBar`                                    |
+
+| _Layout Widget Name_ | _Widget Description_                                                                                                                                                                                                                        | _Example Usages_                        |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| Row                  | A row represents a horizontal grouping of widgets, similar to a div with its children oriented horizontally. It has speicfications for the main axis and cross axis alignment, and a parameter for its children, which is a list of widgets | `CreateWorkoutPage, line 58`            |
+| Column               | A column represents a vertical grouping of widgets, similar to a div with its children oriented vertically. It has speicfications for the main axis and cross axis alignment, and a parameter for its children, which is a list of widgets  | Most pages! For example, the `HomePage` |
+| Center               | The center widget centers its children within the parent                                                                                                                                                                                    | `HomePage`, `FreedomModePage`           |
+
+For a more complete list of basic Flutter widgets, please refer to the [Flutter Documentation](https://docs.flutter.dev/development/ui/widgets/basics).
+
+The entirer Stronger application is made using these (and a few other) basic building blocks. As can be seen from the example, quite complex functionality can be built up quickly.
 
 # The _Stronger_ App
 
