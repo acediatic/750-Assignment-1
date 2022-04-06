@@ -17,9 +17,6 @@ void main() {
       create: (context) => WorkoutsList(demoWorkouts)));
 }
 
-const freedomModeRoute = '/freedom_mode';
-const createWorkoutRoute = '/create_workout';
-
 class StrongerApp extends StatelessWidget {
   const StrongerApp({Key? key}) : super(key: key);
 

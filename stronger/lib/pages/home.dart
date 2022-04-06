@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stronger/pages/create_workout_page.dart';
+import 'package:stronger/pages/freedom_mode_page.dart';
 import 'package:stronger/pages/list_workouts.dart';
 import 'package:stronger/main.dart';
 import 'package:stronger/model/workouts_list.dart';
@@ -54,12 +56,12 @@ class Home extends StatelessWidget {
             const RoundedTitleCard(
               text: 'Freedom Mode',
               leadingIcon: Icons.accessibility_outlined,
-              pushRoute: freedomModeRoute,
+              pushRoute: FreedomModePage.routeName,
             ),
             const RoundedTitleCard(
               text: 'Create Workout',
               leadingIcon: Icons.add_circle_outline_outlined,
-              pushRoute: createWorkoutRoute,
+              pushRoute: CreateWorkoutPage.routeName,
             ),
           ],
         ),
