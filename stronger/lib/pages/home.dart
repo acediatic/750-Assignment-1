@@ -17,26 +17,35 @@ class Home extends StatelessWidget {
       child: Center(
         // list of rounded cards with titles "My Workouts", "Freedom Mode", and "Create Workout".
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "My Workouts",
-            ),
-            SizedBox(
-              height: 100,
-              child: Consumer<WorkoutsList>(
-                  builder: (context, workoutsList, child) {
-                return ListView.builder(
-                  // horizontal scrolling
-                  scrollDirection: Axis.horizontal,
-                  itemCount: workoutsList.workouts.length,
-                  itemBuilder: (context, index) {
-                    final workout = workoutsList.workouts[index];
-                    return WorkoutCard(workout: workout);
-                  },
-                );
-              }),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "My Workouts",
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                        fontSize: 30,
+                      ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 100,
+                  child: Consumer<WorkoutsList>(
+                      builder: (context, workoutsList, child) {
+                    return ListView.builder(
+                      // horizontal scrolling
+                      scrollDirection: Axis.horizontal,
+                      itemCount: workoutsList.workouts.length,
+                      itemBuilder: (context, index) {
+                        final workout = workoutsList.workouts[index];
+                        return WorkoutCard(workout: workout);
+                      },
+                    );
+                  }),
+                ),
+              ],
             ),
             const RoundedCard(
               text: 'My Workouts',
@@ -90,7 +99,12 @@ class RoundedCard extends StatelessWidget {
                   leadingIcon,
                   color: Theme.of(context).colorScheme.primary,
                 ),
-                Text(text),
+                Text(
+                  text,
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                        fontSize: 25,
+                      ),
+                ),
                 const Icon(Icons.keyboard_arrow_right),
               ],
             ),
@@ -123,12 +137,7 @@ class WorkoutCard extends StatelessWidget {
               workout.icon,
               color: Theme.of(context).colorScheme.primary,
             ),
-            Text(
-              workout.title,
-              style: Theme.of(context).textTheme.headline1?.copyWith(
-                    fontSize: 25,
-                  ),
-            ),
+            Text(workout.title),
           ],
         ),
       ),
