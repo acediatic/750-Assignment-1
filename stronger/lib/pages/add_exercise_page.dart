@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stronger/components/add_exercise_modal.dart';
+import 'package:stronger/components/view_workout_exercises.dart';
 import 'package:stronger/model/workout.dart';
-import 'package:stronger/pages/create_workout_page.dart';
+import 'package:stronger/model/workouts_list.dart';
 
 import '../components/standard_scaffold.dart';
 
@@ -20,12 +21,13 @@ class AddExercisesPage extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CreateWorkoutPage(),
+                const Expanded(child: ViewWorkoutExercises()),
                 const SizedBox(height: 16.0),
                 // button to save new workout and proceed to workout screen
                 ElevatedButton(
                   child: const Text("Save Workout"),
                   onPressed: () {
+                    context.read<WorkoutsList>().add(workout);
                     Navigator.pushNamedAndRemoveUntil(
                         context, "/workout", ModalRoute.withName("/"),
                         arguments: workout);
@@ -40,7 +42,6 @@ class AddExercisesPage extends StatelessWidget {
                 child: const Icon(Icons.add),
                 onPressed: () async {
                   final exercise = await AddExerciseModal.showModal(context);
-
                   if (exercise != null) workout.addExercise(exercise);
                 },
               ),
