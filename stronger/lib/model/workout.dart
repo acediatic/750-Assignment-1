@@ -35,7 +35,21 @@ class Workout extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateExercise(Exercise exercise) {
+  void removeExerciseAtIndex(int index) {
+    exercises.removeAt(index);
+    notifyListeners();
+  }
+
+  void swapExercise(int oldIndex, int newIndex) {
+    // swaps the exercise at oldIndex with the exercise at newIndex
+    if (oldIndex < newIndex) {
+      // removing the item at oldIndex will shorten the list by 1.
+      newIndex -= 1;
+    }
+
+    final Exercise temp = exercises[oldIndex];
+    exercises[oldIndex] = exercises[newIndex];
+    exercises[newIndex] = temp;
     notifyListeners();
   }
 }
