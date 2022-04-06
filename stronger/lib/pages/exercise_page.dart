@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 import 'package:stronger/components/standard_scaffold.dart';
 
+import '../components/rep_counter.dart';
 import '../model/exercise.dart';
 
 class ExercisePage extends StatelessWidget {
@@ -10,11 +12,30 @@ class ExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _exercise = ModalRoute.of(context)?.settings.arguments as Exercise;
-
     return StandardScaffold(
-        child: Center(
-            child: Text("Exercise Page for \"${_exercise.title}\"",
-                style: const TextStyle(fontSize: 24.0))));
+      child: Consumer<Exercise>(
+        builder: ((context, _exercise, child) => Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(_exercise.title,
+                    style: Theme.of(context).textTheme.headline2),
+                SizedBox(
+                    child: RepCounter(
+                      exercise: _exercise,
+                    ),
+                    height: 300),
+                // row of icon buttons to add, remove, or finish the exercise
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: FloatingActionButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Icon(Icons.done)),
+                )
+              ],
+            )),
+      ),
+    );
   }
 }

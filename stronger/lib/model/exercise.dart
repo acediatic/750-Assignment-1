@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-class Exercise {
+class Exercise extends ChangeNotifier {
   String title;
   IconData icon;
   String description;
@@ -16,4 +16,19 @@ class Exercise {
     this.description = "",
     this.targetReps = 1,
   });
+
+  void increment() {
+    completedReps++;
+    notifyListeners();
+  }
+
+  void decrement() {
+    completedReps--;
+    notifyListeners();
+  }
+
+  void reset() {
+    completedReps = 0;
+    notifyListeners();
+  }
 }

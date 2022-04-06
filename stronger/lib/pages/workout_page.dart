@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:stronger/model/workout.dart';
 import 'package:stronger/components/standard_scaffold.dart';
 import 'package:stronger/pages/exercise_page.dart';
@@ -68,11 +69,27 @@ class WorkoutPage extends StatelessWidget {
                   subtitle: Text(exercise.description),
                   trailing: const Icon(Icons.keyboard_arrow_right),
                   onTap: () {
-                    Navigator.pushNamed(context, ExercisePage.routeName,
-                        arguments: exercise);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChangeNotifierProvider.value(
+                            child: const ExercisePage(),
+                            value: exercise,
+                          ),
+                        ));
                   },
                 );
               },
+            ),
+          ),
+          // complete workout button
+          Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Icon(Icons.home),
             ),
           ),
         ],
