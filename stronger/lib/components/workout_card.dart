@@ -22,10 +22,12 @@ class WorkoutCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            FaIcon(
-              workout.icon,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            Hero(
+                child: FaIcon(
+                  workout.icon,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                tag: workout),
             Text(workout.title),
           ],
         ),
