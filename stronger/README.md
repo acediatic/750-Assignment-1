@@ -95,25 +95,51 @@ The Dart code can be found under the [`lib` directory](./lib/), equivalent to `s
 
 ## Data Model
 
+The model directory contains three models (and files):
+
+1. **[Exercise](./lib/model/exercise.dart):** An exercise represents an exercise within a workout, such as push ups or pull ups. Along with basic information about the exercise such as its name and description, it has a _target_ number of repetitions (the number of repetitions the user _aims_ to complete), and a _completed_ number of reptetions (the number of repetitions the user has _actually completed_).
+
+2. **[Workout](./lib/model/workout.dart):** A workout represents a user's workout. It is a collection of exercises in a specific order. Along with the basic information such as title and description, a workout has an ordered list of repetitions and a target number of rounds to complete (how many times all exercises will be attempted).
+
+3. **[Workout List](./lib/model/workouts_list.dart):** A workout list represents the collection of the user's workouts. It stores all the workouts the user has, and would likely be replaced with a remote database such as Firebase in a full application.
+
 ## Pages
 
-### HomePage
+[Pages](./lib/pages/) are simply widgets like any other, but they are structured so as to be the top level widget of a partciular page view. They begin with a standard skeleton which adds the basic, standard layout for the application, including the app bar. They then contain a custom widget composition to produce the desired page.
 
-### List Workouts Page
+### [HomePage](./lib/pages/home.dart)
 
-### Workout Page
+The home page allows the user to view their top saved workouts, navigate to a list of all their workouts, access a freedom mode allowing them to perform exercise by exercise, or to add an entirely new workout.
 
-### Exercise Page
+### [List Workouts Page](./lib/pages/list_workouts.dart)
 
-### Create Workout Page
+The list workouts page lists all the user's saved workouts. They can click any workout to be taken to it's page.
 
-### Add Exercise Page
+### [Workout Page](./lib/pages/workout_page.dart)
 
-### Freedom Mode
+The workout page represents a particular exercise. It shows details about that workout, as well as the list of exercises for that workout. Clicking any one of these exercises starts an exercise session.
+
+### [Exercise Page](./lib/pages/exercise_page.dart)
+
+The exercise page displays an exercise. It has an adjustable counter, allowing the user to keep track of the number of repetitions they've completed. Navigating back to the workout screen, then back again to the exercise demonstrates that the count is still preservered - this is persisted in (volatile) memory.
+
+### [Create Workout Page](./lib/pages/create_workout_page.dart)
+
+The Create Workout page allow the user to add a new workout. In the current implementation, they are able to edit its title and desired number of round repetitions. Continuing, the user is taken to the Add Exercise page where they can add exercises to this workout.
+
+### [Add Exercise Page](./lib/pages/add_exercise_page.dart)
+
+The Add Exercise page allows the user to add exercises to their newly created workout. They can do this by pushing the floating action button in the bottom right corner. This produces a dialogue into which they can describe the exercise's name and target number of repetitions. Adding the exercise adds it to the list.
+
+### [Freedom Mode](./lib/pages/freedom_mode_page.dart)
+
+Freedom mode allows the user to pick their exercises as they go, creating a workout on the fly. It has not yet been implemented.
 
 ## Unique UI Features
 
 ### Hero Transitions
+
+Hero transitions are used to create a sense of continuity between screens. It takes an icon/image/hero element, and animates it transitioning between two screens. It is most notably used in the transition from the home screen to the `MyWorkouts` screen, and again from the `MyWorkouts` screen through to the `Workout` page.
 
 ### Preserved User Input
 
