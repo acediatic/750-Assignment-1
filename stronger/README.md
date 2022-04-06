@@ -8,7 +8,12 @@ To compile and run the app locally, you need to have installed Flutter and Dart 
 
 Once you've successfully installed Flutter, you have the choice of running and debugging the app using any of Flutter's supported platforms. This guide will assume you're using [Microsoft's Visual Studio Code](https://code.visualstudio.com/) as your IDE, and have an Android phone.
 
-To run the application:
+In order to run the demonstration, you will need to have completed the **first two steps**:
+
+1. [Install](https://docs.flutter.dev/get-started/install)
+2. [Configure IDE](https://docs.flutter.dev/get-started/editor?tab=vscode)
+
+**When you've reached the third step**, **_don't create the app as suggested_**. Instead, follow the steps below:
 
 1. Open the repository in VS Code, then navigate to the [`lib/main.dart`](./lib/main.dart).
 2. Plug your Android device into your computer, and configure it for [developer mode](https://docs.flutter.dev/get-started/install/windows#set-up-your-android-device)
@@ -16,9 +21,9 @@ To run the application:
 4. Select your Android device from the dropdown list
 5. Use `ctrl-F5` or `Run>Run without debugging` to run the application. After compiling and loading, you should see the Stronger app launched on your Android device.
 
-Note that if you don't have an Android device, other devices may be selected in step 3. above, such as the Chrome web browser. However, be aware that the example application was built with mobile in mind, and hence is not optimised and may not look or perform as expected on other platforms.
+If you're having issues, see [Step 3 of the Flutter Docs](https://docs.flutter.dev/get-started/test-drive?tab=vscode), but know that you'll want to run the existing application rather than creating a new one.
 
-The [Flutter docs](https://docs.flutter.dev/get-started/test-drive?tab=vscode) are again helpful if you get stuck.
+Note that if you don't have an Android device, other devices may be selected in step 3. above, such as the [Android Emulator](https://docs.flutter.dev/get-started/install/windows#set-up-the-android-emulator) or Chrome web browser. However, be aware that these may require further installation. Furthermore, the example application was built with mobile in mind, and hence is not optimised for and may not look or perform as expected on other platforms.
 
 ## Introduction to Flutter
 
@@ -76,9 +81,8 @@ The equivalences between Flutter and React state management methods are summaris
 | Stateful Widgets | React Components with useState hooks |
 | Providers | ContextProvider |
 
-Select a cross-platform development framework of your choice, and prepare a demo which explains the toolchain involved - including how to test your app on real mobile devices. Also include in your demo some examples and explanation of the differences between web development using React, and mobile development using your chosen framework.
-
 **UI Components**
+
 Flutter doesn’t use native UI components. When the Flutter code is compiled on iOS for example, it is not compiled into the underlying iOS button type. Instead, this is all handled by Flutter's graphic engine, in a similar manner to Java's JVM.
 
 # The _Stronger_ App
@@ -121,7 +125,7 @@ The workout page represents a particular exercise. It shows details about that w
 
 ### [Exercise Page](./lib/pages/exercise_page.dart)
 
-The exercise page displays an exercise. It has an adjustable counter, allowing the user to keep track of the number of repetitions they've completed. Navigating back to the workout screen, then back again to the exercise demonstrates that the count is still preservered - this is persisted in (volatile) memory.
+The exercise page displays an exercise. It has an adjustable counter, allowing the user to keep track of the number of repetitions they've completed.
 
 ### [Create Workout Page](./lib/pages/create_workout_page.dart)
 
@@ -143,17 +147,25 @@ Hero transitions are used to create a sense of continuity between screens. It ta
 
 ### Preserved User Input
 
+Using the data model, information the user inputs is preserved between page changes/rerenders.
+
+Navigating from the `Add Exercises` screen back to the `Create Workout` also shows the form data remaining.
+
 ### Reorderable Exercises
+
+The list of exercises in the `Add Exercises` page are all reorderable through drag and drop. This order is preserved in the `Workout` page, for when the user comes to do the workout.
 
 ### Slide to Delete Exercises
 
+Each exercise added to the `Add Exercise` page can be slid to the left to reveal a delete button, which will remove the corresponding exercise from the Workout and hence the list.
+
 ### Preserved Exercise Reps
+
+Navigating back to the workout screen, then back again to the exercise demonstrates that the count is still preservered - this is persisted in (volatile) memory.
 
 ### Saving a Workout
 
-## Toolchain
-
-### Examples
+When a workout has been created and saved, it is been added to the list of workouts. This means it is visible on the `home` page in the MyWorkouts section, or on the `MyWorkouts` page itself.
 
 ## Additional Flutter Resources
 
