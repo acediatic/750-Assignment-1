@@ -16,7 +16,7 @@ In order to run the demonstration, you will need to have completed the **first t
 **When you've reached the third step**, **_don't create the app as suggested_**. Instead, follow the steps below:
 
 1. Open the repository in VS Code, then navigate to the [`lib/main.dart`](./lib/main.dart).
-2. Plug your Android device into your computer, and configure it for [developer mode](https://docs.flutter.dev/get-started/install/windows#set-up-your-android-device)
+2. Plug your Android device into your computer, and configure it for [developer mode](https://docs.flutter.dev/get-started/install/windows#set-up-your-android-device) if you haven't already.
 3. Open the command palette using `ctrl-shift-p` or `view>command palette`, then type `Flutter: select device` and choose the corresponding option. This will show a drop-down of the available devices.
 4. Select your Android device from the dropdown list
 5. Use `ctrl-F5` or `Run>Run without debugging` to run the application. After compiling and loading, you should see the Stronger app launched on your Android device.
