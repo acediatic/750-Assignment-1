@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../components/standard_scaffold.dart';
 import '../model/workout.dart';
+import 'add_exercises.dart';
 
 class CreateWorkoutPage extends StatelessWidget {
   const CreateWorkoutPage({Key? key}) : super(key: key);
@@ -59,7 +60,14 @@ class CreateWorkoutPage extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                // TODO navigate to add exercises page
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider.value(
+                      value: workout,
+                      child: const AddExercisesPage(),
+                    ),
+                  ),
+                );
               },
             ),
           ],
