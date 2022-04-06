@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:stronger/pages/list_workouts.dart';
 import 'package:stronger/main.dart';
-import 'package:stronger/model/workout.dart';
 import 'package:stronger/model/workouts_list.dart';
-import 'package:stronger/pages/workout_page.dart';
 import '../components/standard_scaffold.dart';
+import '../components/workout_card.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -112,35 +110,5 @@ class RoundedCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class WorkoutCard extends StatelessWidget {
-  const WorkoutCard({Key? key, required this.workout}) : super(key: key);
-
-  final Workout workout;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        child: InkWell(
-      splashColor: Colors.blue.withAlpha(30),
-      onTap: () {
-        Navigator.pushNamed(context, WorkoutPage.routeName, arguments: workout);
-      },
-      child: SizedBox(
-        width: 150,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            FaIcon(
-              workout.icon,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            Text(workout.title),
-          ],
-        ),
-      ),
-    ));
   }
 }
