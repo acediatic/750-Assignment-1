@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:stronger/model/workout.dart';
 
@@ -31,44 +32,73 @@ class _ViewWorkoutExercisesState extends State<ViewWorkoutExercises> {
         const SizedBox(height: 16.0),
         Expanded(
           child: workout.exercises.isNotEmpty
-              ? ReorderableListView(
-                  buildDefaultDragHandles: true,
-                  children: <ListTile>[
-                    for (int index = 0; index < _exercises.length; index++)
-                      ListTile(
-                        key: UniqueKey(),
-                        tileColor: index % 2 == 0
-                            ? Theme.of(context).colorScheme.background
-                            : Theme.of(context)
-                                .colorScheme
-                                .background
-                                .withOpacity(0.5),
-                        leading: Text("${index + 1}",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6
-                                ?.copyWith(
-                                  color: Theme.of(context).colorScheme.primary,
-                                )),
-                        title: Row(
-                          children: [
-                            Text("${_exercises[index].title} | "),
-                            Text(
-                              "${_exercises[index].targetReps} reps",
-                              style: const TextStyle(
-                                fontStyle: FontStyle.italic,
+              ? SlidableAutoCloseBehavior(
+                  child: ReorderableListView(
+                      buildDefaultDragHandles: true,
+                      children: <Slidable>[
+                        for (int index = 0; index < _exercises.length; index++)
+                          Slidable(
+                            key: UniqueKey(),
+                            groupTag: workout,
+                            endActionPane: ActionPane(
+                              motion: const ScrollMotion(),
+                              // A pane can dismiss the Slidable.
+                              dismissible: DismissiblePane(onDismissed: () {}),
+                              children: [
+                                SlidableAction(
+                                  // An action can be bigger than the others.
+                                  flex: 2,
+                                  onPressed: (context) {
+                                    workout.removeExerciseAtIndex(index);
+                                  },
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  foregroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimaryContainer,
+                                  icon: Icons.delete,
+                                  label: 'Delete',
+                                ),
+                              ],
+                            ),
+                            child: ListTile(
+                              key: UniqueKey(),
+                              tileColor: index % 2 == 0
+                                  ? Theme.of(context).colorScheme.background
+                                  : Theme.of(context)
+                                      .colorScheme
+                                      .background
+                                      .withOpacity(0.5),
+                              leading: Text("${index + 1}",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      )),
+                              title: Row(
+                                children: [
+                                  Text("${_exercises[index].title} | "),
+                                  Text(
+                                    "${_exercises[index].targetReps} reps",
+                                    style: const TextStyle(
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                  // italics text
+                                ],
+                              ),
+                              trailing: ReorderableDragStartListener(
+                                index: index,
+                                child: const Icon(Icons.drag_handle),
                               ),
                             ),
-                            // italics text
-                          ],
-                        ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () => workout.removeExerciseAtIndex(index),
-                        ),
-                      )
-                  ],
-                  onReorder: workout.swapExercise)
+                          ),
+                      ],
+                      onReorder: workout.swapExercise),
+                )
               : const Center(
                   // italics text
                   child: Text(
