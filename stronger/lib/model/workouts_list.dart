@@ -3,6 +3,13 @@ import 'dart:collection';
 import "package:flutter/material.dart";
 import "workout.dart";
 
+/* 
+ * A workout list represents the collection of the user's workouts. 
+ * It stores all the workouts the user has.
+ * 
+ * It extends ChangeNotifier, to allow it to update listeners when its state
+ * changes.
+ */
 class WorkoutsList extends ChangeNotifier {
   WorkoutsList(this._workouts);
 

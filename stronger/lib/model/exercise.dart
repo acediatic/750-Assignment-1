@@ -1,5 +1,15 @@
 import "package:flutter/material.dart";
 
+/*
+ * An exercise represents an exercise within a workout, such as push ups or pull 
+ * ups. Along with basic information about the exercise such as its name and 
+ * description, it has a target number of repetitions (the number of repetitions
+ * the user aims to complete), and a completed number of reptetions (the number 
+ * of repetitions the user has actually completed).
+ * 
+ * It extends ChangeNotifier, to allow it to update listeners when its state
+ * changes.
+ */
 class Exercise extends ChangeNotifier {
   String title;
   IconData icon;

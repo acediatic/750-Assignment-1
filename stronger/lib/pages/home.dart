@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 import 'package:stronger/pages/create_workout_page.dart';
 import 'package:stronger/pages/freedom_mode_page.dart';
 import 'package:stronger/pages/list_workouts.dart';
-import 'package:stronger/main.dart';
 import 'package:stronger/model/workouts_list.dart';
 import '../components/rounded_title_card.dart';
 import '../components/standard_scaffold.dart';
 import '../components/workout_card.dart';
 
+/// The home page allows the user to view their top saved workouts, navigate to
+/// a list of all their workouts, access a freedom mode allowing them to perform
+/// exercise by exercise, or to add an entirely new workout.
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 

@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stronger/model/exercise.dart';
 
+/*
+ * This is the modal that is used to add a new exercise to a workout.
+ * It comes up from the bottom of the screen.
+ * It uses a custom Flutter function, showModalBottomSheet, to display the modal.
+ * Inside the widget are TextFields to receive user input and a button to add 
+ * the exercise to the workout.
+ */
 class AddExerciseModal extends StatefulWidget {
   const AddExerciseModal({Key? key}) : super(key: key);
 

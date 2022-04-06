@@ -5,6 +5,16 @@ import 'package:stronger/model/workout.dart';
 
 import '../model/exercise.dart';
 
+/*
+ * The ViewWorkoutExercises widget is used to display a list of exercises
+ * of a particular workout. 
+ * 
+ * It is used on the add exercises page. 
+ * 
+ * It allows reordering and deleting of exercises. To achieve this, it uses the
+ * Flutter Reorderable List widget, and the Slidable widget from the Flutter_slidable
+ * package.
+ */
 class ViewWorkoutExercises extends StatefulWidget {
   const ViewWorkoutExercises({Key? key}) : super(key: key);
 

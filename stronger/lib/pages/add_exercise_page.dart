@@ -7,6 +7,13 @@ import 'package:stronger/model/workouts_list.dart';
 
 import '../components/standard_scaffold.dart';
 
+/// The Add Exercise page allows the user to add exercises to their newly created
+/// workout. They can do this by pushing the floating action button in the bottom
+/// right corner. This produces a dialogue into which they can describe the
+/// exercise's name and target number of repetitions.
+///
+/// Adding the exercise adds it to the list.
+///
 class AddExercisesPage extends StatelessWidget {
   const AddExercisesPage({Key? key}) : super(key: key);
 

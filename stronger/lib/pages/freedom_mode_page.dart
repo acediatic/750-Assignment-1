@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stronger/components/standard_scaffold.dart';
 
+/// Freedom mode would allow users to freely select their exercises on the fly.
+///
+/// However, it has not yet been implemented, and instead is a placeholder.
 class FreedomModePage extends StatelessWidget {
   const FreedomModePage({Key? key}) : super(key: key);
 

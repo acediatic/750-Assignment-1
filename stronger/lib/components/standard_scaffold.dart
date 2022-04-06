@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stronger/components/appbar.dart';
 
+/*
+  * This is the scaffold that is used on all pages of the app.
+  * It contains the appbar, and a body with some padding.
+  */
 class StandardScaffold extends StatelessWidget {
   final Widget child;
 

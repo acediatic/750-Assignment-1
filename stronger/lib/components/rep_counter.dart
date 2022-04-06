@@ -3,6 +3,16 @@ import 'package:flutter/material.dart';
 import '../model/exercise.dart';
 import 'crement_button.dart';
 
+/*
+ * The RepCounter is a widget that displays the number of reps
+ * that the user has completed for a given exercise.
+ * It also displays the number of reps that the user has left
+ * to complete the exercise.
+ * 
+ * It will not autocomplete when the target reps are reached, in case the user
+ * wants to do more than their target reps. 
+ */
+
 class RepCounter extends StatelessWidget {
   const RepCounter({Key? key, required this.exercise}) : super(key: key);
 

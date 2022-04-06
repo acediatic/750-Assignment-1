@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import './model/workout.dart';
 import './model/exercise.dart';
 
+/// Contains demo user workouts, for the purposes of this example.
 List<Workout> demoWorkouts = [
   Workout.withExercises(
     title: "Chest",

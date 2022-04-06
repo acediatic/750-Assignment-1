@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+/*
+ * This is the AppBar used by the app. It simply contains two icons,
+ * one which is the logo for the app, and the other an Icon Button which
+ * could be used to view user settings (not implemented).
+ */
 class StrongerAppBar extends StatelessWidget with PreferredSizeWidget {
   const StrongerAppBar({Key? key}) : super(key: key);
 

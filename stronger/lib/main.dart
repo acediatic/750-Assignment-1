@@ -11,16 +11,19 @@ import 'package:provider/provider.dart';
 import "package:stronger/model/workout.dart";
 import 'pages/list_workouts.dart';
 
+/// The main function is the entry point for the application.
 void main() {
+  // The ChangeNotifierProvider is used to provide the WorkoutsList to all
+  // widgets that need it.
   runApp(ChangeNotifierProvider(
       child: const StrongerApp(),
       create: (context) => WorkoutsList(demoWorkouts)));
 }
 
+/// The stronger app is the root widget of the application.
 class StrongerApp extends StatelessWidget {
   const StrongerApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,6 +36,7 @@ class StrongerApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.dark,
       initialRoute: "/",
+      // The routes are the pages that the application will navigate to.
       routes: {
         "/": (context) => const Home(),
         ListWorkouts.routeName: (context) => const ListWorkouts(),

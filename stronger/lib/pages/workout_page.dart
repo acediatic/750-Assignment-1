@@ -5,6 +5,10 @@ import 'package:stronger/model/workout.dart';
 import 'package:stronger/components/standard_scaffold.dart';
 import 'package:stronger/pages/exercise_page.dart';
 
+/// The workout page represents a particular exercise. It shows details about
+/// that workout, as well as the list of exercises for that workout.
+///
+/// Clicking any one of these exercises starts an exercise session.
 class WorkoutPage extends StatelessWidget {
   const WorkoutPage({Key? key}) : super(key: key);
 

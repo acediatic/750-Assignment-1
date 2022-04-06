@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/*
+ * The RoundedTitleCard widget is a card that has a rounded border and a title.
+ * It is used on the homepage to display an option. 
+ */
 class RoundedTitleCard extends StatelessWidget {
   final String text;
   final IconData leadingIcon;

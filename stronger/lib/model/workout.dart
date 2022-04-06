@@ -2,6 +2,15 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import "exercise.dart";
 
+/*
+ * A workout represents a user's workout. It is a collection of exercises in a 
+ * specific order. Along with the basic information such as title and 
+ * description, a workout has an ordered list of repetitions and a target number 
+ * of rounds to complete (how many times all exercises will be attempted).
+ * 
+ * It extends ChangeNotifier, to allow it to update listeners when its state
+ * changes.
+ */
 class Workout extends ChangeNotifier {
   String title;
   IconData icon;

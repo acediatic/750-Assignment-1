@@ -5,6 +5,9 @@ import 'package:stronger/components/standard_scaffold.dart';
 import '../components/rep_counter.dart';
 import '../model/exercise.dart';
 
+/// The exercise page displays an exercise. It has an adjustable counter,
+/// allowing the user to keep track of the number of repetitions they've
+/// completed.
 class ExercisePage extends StatelessWidget {
   const ExercisePage({Key? key}) : super(key: key);
 

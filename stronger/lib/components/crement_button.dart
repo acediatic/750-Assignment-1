@@ -2,6 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+/*
+ * The CrementButton class is a button that can be used to increment or decrement
+ * a value. It is used in the rep counter widget to represent the number of reps, 
+ * allowing the user to add or remove completed reps from the exercise.
+ * 
+ * It is a StatefulWidget because it needs to be able to change the value of the
+ * exercise it is associated with.
+ * 
+ * It has two arguments to the constructor, the onclick function and the icon to use.
+ */
 class CrementButton extends StatefulWidget {
   const CrementButton({
     Key? key,

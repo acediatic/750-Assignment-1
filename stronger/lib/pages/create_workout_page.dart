@@ -6,6 +6,10 @@ import 'package:stronger/pages/add_exercise_page.dart';
 
 import '../model/workout.dart';
 
+/// The Create Workout page allow the user to add a new workout. In the current
+/// implementation, they are able to edit its title and desired number of round
+/// repetitions.
+
 class CreateWorkoutPage extends StatelessWidget {
   const CreateWorkoutPage({Key? key}) : super(key: key);
 

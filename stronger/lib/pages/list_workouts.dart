@@ -4,6 +4,11 @@ import 'package:stronger/components/standard_scaffold.dart';
 import 'package:provider/provider.dart';
 import 'package:stronger/pages/workout_page.dart';
 
+/// The list workouts page lists all the user's saved workouts. They can click
+/// any workout to be taken to it's page.
+///
+/// It includes a hero transition to animate between selecting a workout from
+/// the list and its corresponding page.
 class ListWorkouts extends StatelessWidget {
   const ListWorkouts({Key? key}) : super(key: key);
 
