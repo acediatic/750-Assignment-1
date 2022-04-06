@@ -4,11 +4,25 @@ import 'package:stronger/components/add_exercise_modal.dart';
 import 'package:stronger/model/workout.dart';
 
 import '../components/standard_scaffold.dart';
+import '../model/exercise.dart';
 
-class AddExercisesPage extends StatelessWidget {
+class AddExercisesPage extends StatefulWidget {
   const AddExercisesPage({Key? key}) : super(key: key);
 
   static const routeName = "/add_exercises";
+
+  @override
+  State<AddExercisesPage> createState() => _AddExercisesPageState();
+}
+
+class _AddExercisesPageState extends State<AddExercisesPage> {
+  late List<Exercise> _exercises;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _exercises = Provider.of<Workout>(context, listen: true).exercises;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +35,49 @@ class AddExercisesPage extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 Expanded(
                   child: workout.exercises.isNotEmpty
-                      ? ListView.builder(
-                          itemCount: workout.exercises.length,
-                          itemBuilder: (context, index) {
-                            final exercise = workout.exercises[index];
-                            return ListTile(
-                              leading: const Icon(Icons.access_time),
-                              title: Text(exercise.title),
-                              subtitle: Text(exercise.description),
-                              trailing: Text(exercise.targetReps.toString()),
-                            );
-                          },
-                        )
+                      ? ReorderableListView(
+                          buildDefaultDragHandles: true,
+                          children: <ListTile>[
+                            for (int index = 0;
+                                index < _exercises.length;
+                                index++)
+                              ListTile(
+                                key: UniqueKey(),
+                                tileColor: index % 2 == 0
+                                    ? Theme.of(context).colorScheme.background
+                                    : Theme.of(context)
+                                        .colorScheme
+                                        .background
+                                        .withOpacity(0.5),
+                                leading: Text("${index + 1}",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        ?.copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                        )),
+                                title: Row(
+                                  children: [
+                                    Text("${_exercises[index].title} | "),
+                                    Text(
+                                      "${_exercises[index].targetReps} reps",
+                                      style: const TextStyle(
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                    ),
+                                    // italics text
+                                  ],
+                                ),
+                                trailing: IconButton(
+                                  icon: const Icon(Icons.delete),
+                                  onPressed: () =>
+                                      workout.removeExerciseAtIndex(index),
+                                ),
+                              )
+                          ],
+                          onReorder: workout.swapExercise)
                       : const Center(
                           // italics text
                           child: Text(
@@ -40,6 +85,16 @@ class AddExercisesPage extends StatelessWidget {
                             style: TextStyle(fontStyle: FontStyle.italic),
                           ),
                         ),
+                ),
+                const SizedBox(height: 16.0),
+                // button to save new workout and proceed to workout screen
+                ElevatedButton(
+                  child: const Text("Save Workout"),
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, "/workout", ModalRoute.withName("/"),
+                        arguments: workout);
+                  },
                 ),
                 // floating action button to add exercise
                 Align(
@@ -50,9 +105,7 @@ class AddExercisesPage extends StatelessWidget {
                       final exercise =
                           await AddExerciseModal.showModal(context);
 
-                      if (exercise != null) {
-                        workout.addExercise(exercise);
-                      }
+                      if (exercise != null) workout.addExercise(exercise);
                     },
                   ),
                 ),
