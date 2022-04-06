@@ -14,63 +14,66 @@ class CreateWorkoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StandardScaffold(
-      child: Consumer<Workout>(
-        builder: (context, workout, child) => Column(
-          children: [
-            Text(
-              "Create Workout",
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Workout Name",
+      child: SingleChildScrollView(
+        child: Consumer<Workout>(
+          builder: (context, workout, child) => Column(
+            children: [
+              Text(
+                "Create Workout",
+                style: Theme.of(context).textTheme.headline6,
               ),
-              onChanged: (value) => workout.title = value,
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Description",
+              const SizedBox(height: 16.0),
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: "Workout Name",
+                ),
+                onChanged: (value) => workout.title = value,
               ),
-              onChanged: (value) => workout.description = value,
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ], // Only numbers can be entered
-              decoration: const InputDecoration(
-                labelText: "Target Rounds",
+              const SizedBox(height: 16.0),
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: "Description",
+                ),
+                onChanged: (value) => workout.description = value,
               ),
-              onChanged: (value) => workout.targetRounds = value as int,
-            ),
-            const SizedBox(height: 16.0),
-            // button to navigate to the add exercises screen
-            ElevatedButton(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Spacer(flex: 5),
-                  Text("Add Exercises"),
-                  Spacer(flex: 1),
-                  Icon(Icons.arrow_forward),
-                  Spacer(flex: 5),
-                ],
+              const SizedBox(height: 16.0),
+              TextField(
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ], // Only numbers can be entered
+                decoration: const InputDecoration(
+                  labelText: "Target Rounds",
+                ),
+                onChanged: (value) => workout.targetRounds =
+                    !int.parse(value).isNaN ? int.parse(value) : 0,
               ),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ChangeNotifierProvider.value(
-                      value: workout,
-                      child: const ViewWorkoutExercises(),
+              const SizedBox(height: 16.0),
+              // button to navigate to the add exercises screen
+              ElevatedButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Spacer(flex: 5),
+                    Text("Add Exercises"),
+                    Spacer(flex: 1),
+                    Icon(Icons.arrow_forward),
+                    Spacer(flex: 5),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ChangeNotifierProvider.value(
+                        value: workout,
+                        child: const ViewWorkoutExercises(),
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-          ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
