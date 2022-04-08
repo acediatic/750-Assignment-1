@@ -72,15 +72,6 @@ When wanting to share state between multiple widgets, we can pass information be
 
 To solve this, the Provider package allows the passing of information using the producer-consumer model. Here, widgets can subscribe to a certain type of object (usually a datamodel object, like a shopping cart), which they can access from their parent. They typically watch for changes of this object, and rerender whenever they're notified that the object has changed. This takes advantage of the `Consumer<T>` and `Producer` widgets, to consume and provide an object respectively.
 
-**React Equivalences Summary**
-
-The equivalences between Flutter and React state management methods are summarised below:
-| **Flutter State Management Method** | **React State Management Method** |
-|---------------------------------|--------------------------------------|
-| Stateless Widgets | React Components |
-| Stateful Widgets | React Components with useState hooks |
-| Providers | ContextProvider |
-
 **UI Components**
 
 Flutter doesn’t use native UI components. When the Flutter code is compiled on iOS for example, it is not compiled into the underlying iOS button type. Instead, this is all handled by Flutter's graphic engine, in a similar manner to Java's JVM.
@@ -105,6 +96,33 @@ Flutter has a number of widgets that make creating an application simple. There 
 For a more complete list of basic Flutter widgets, please refer to the [Flutter Documentation](https://docs.flutter.dev/development/ui/widgets/basics).
 
 The entirer Stronger application is made using these (and a few other) basic building blocks. As can be seen from the example, quite complex functionality can be built up quickly.
+
+## Similarities and Differences Between Flutter and React
+
+Now that Flutter has introduced Flutter for Web, the differences between developing for Flutter and React have decreased. The major differences are highlighted below.
+
+**Similarities:**
+
+- Hot reload
+- Compositional structure
+- State Management and information passing (see table below)
+
+_State Management Equivalences Summary - React and Flutter_
+
+The equivalences between Flutter and React state management methods are summarised below:
+| **Flutter State Management Method** | **React State Management Method** |
+|---------------------------------|--------------------------------------|
+| Stateless Widgets | React Components |
+| Stateful Widgets | React Components with useState hooks |
+| Providers | ContextProvider |
+
+**Differences:**
+
+- Flutter maintains its usual advantages over other frameworks including React in that it allows you to have a single codebase for all platforms.
+- Flutter _does not_ allow you to use the inspect tool, as **everything is drawn onto the Canvas.** This changes the debugging process, especially for web, compared to React which relies heavily on the web tools.
+- Flutter, still in it's infancy, appears to be [less performant](https://medium.com/nonstopio/my-experience-with-flutter-web-performance-advantages-disadvantages-part-2-556eaa5d6e4a) than pure HTML/JS like React uses.
+- Flutter Web being newer also means that there is less support than there is for React development. However, Flutter has greater support than that of React Native.
+- Styling in React is achieved through CSS, whereas Flutter uses "themes". Some React libraries allow you to use themes, however.
 
 # The _Stronger_ App
 
