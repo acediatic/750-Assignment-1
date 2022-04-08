@@ -97,15 +97,32 @@ For a more complete list of basic Flutter widgets, please refer to the [Flutter 
 
 The entirer Stronger application is made using these (and a few other) basic building blocks. As can be seen from the example, quite complex functionality can be built up quickly.
 
+## The Flutter Toolchain
+
+There are a few different tools that allow for development in Flutter. The primary ones include:
+
+1. Dark SDK
+2. Flutter SDK
+3. Android SDK (for Android development)
+4. Android Studio
+   - Android AVD for emulators
+
+To develop, you'll use:
+
+1. IDE such as VS Code
+2. Emulator or physical device
+3. Flutter Dev tools - included in the Flutter SDK, such as the Widget Inspector.
+
 ## Similarities and Differences Between Flutter and React
 
 Now that Flutter has introduced Flutter for Web, the differences between developing for Flutter and React have decreased. The major differences are highlighted below.
 
 **Similarities:**
 
-- Hot reload
+- Hot reload (for mobile dev. Hot restart for Flutter WebDev).
 - Compositional structure
 - State Management and information passing (see table below)
+- Investigate structure using the frameworks dev tools (Flutter or React dev tools respectively)
 
 _State Management Equivalences Summary - React and Flutter_
 
@@ -123,6 +140,8 @@ The equivalences between Flutter and React state management methods are summaris
 - Flutter, still in it's infancy, appears to be [less performant](https://medium.com/nonstopio/my-experience-with-flutter-web-performance-advantages-disadvantages-part-2-556eaa5d6e4a) than pure HTML/JS like React uses.
 - Flutter Web being newer also means that there is less support than there is for React development. However, Flutter has greater support than that of React Native.
 - Styling in React is achieved through CSS, whereas Flutter uses "themes". Some React libraries allow you to use themes, however.
+
+A list of equivalences between Flutter and WebDev is also available [in the Flutter docs](https://docs.flutter.dev/get-started/flutter-for/web-devs).
 
 # The _Stronger_ App
 
